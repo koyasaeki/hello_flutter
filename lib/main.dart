@@ -62,6 +62,28 @@ class _MyHomePageState extends State<MyHomePage> {
                 '消える文字',
                 style: Theme.of(context).textTheme.headlineLarge,
               ),
+            ),
+            // 一部のエミュレータでは縮小が動作しない
+            AnimatedSize(
+              duration: const Duration(seconds: 1),
+              child: SizedBox(
+                width: _flag ? 50 : 100,
+                height: _flag ? 50 : 200,
+                child: Container(
+                  color: Colors.green,
+                ),
+              ),
+            ),
+            AnimatedAlign(
+              alignment: _flag ? Alignment.topLeft : Alignment.bottomRight,
+              duration: const Duration(seconds: 5),
+              child: SizedBox(
+                height: 50,
+                width: 50,
+                child: Container(
+                  color: Colors.amber,
+                ),
+              ),
             )
           ],
         ),
