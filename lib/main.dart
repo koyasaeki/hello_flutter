@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,7 +32,13 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _count = 0;
+  bool _flag = false;
+
+  _click() async {
+    setState(() {
+      _flag = !_flag;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,26 +51,24 @@ class _MyHomePageState extends State<MyHomePage> {
               Text('初めてのタイトル'),
             ],
           )),
-      body: const Center(
-          child: Icon(
-        FontAwesomeIcons.gift,
-        color: Colors.greenAccent,
-      )),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            AnimatedOpacity(
+              opacity: _flag ? 0.1 : 1.0,
+              duration: const Duration(seconds: 3),
+              child: Text(
+                '消える文字',
+                style: Theme.of(context).textTheme.headlineLarge,
+              ),
+            )
+          ],
+        ),
+      ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          print('押したね？');
-        },
-        child: const Icon(Icons.timer),
-      ),
-      drawer: const Drawer(
-        child: Center(
-          child: Text('Drawer'),
-        ),
-      ),
-      endDrawer: const Drawer(
-        child: Center(
-          child: Text('EndDrawer'),
-        ),
+        onPressed: _click,
+        child: const Icon(Icons.add),
       ),
     );
   }
