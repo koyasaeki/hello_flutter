@@ -47,10 +47,16 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: const Column(
+      body: Column(
         children: [
-          Text("HelloWorld"),
-          Text("ハローワールド"),
+          const Text("HelloWorld"),
+          const Text("ハローワールド"),
+          TextButton(
+            onPressed: () {
+              print("ボタンが押されたよ。");
+            },
+            child: const Text('テキストボタン'),
+          )
         ],
       ),
       floatingActionButton: FloatingActionButton(
