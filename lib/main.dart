@@ -31,53 +31,77 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  bool _flag = false;
+class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
+  late AnimationController _animationController;
 
-  _click() async {
+  _forward() async {
     setState(() {
-      _flag = !_flag;
+      _animationController.forward();
     });
+  }
+
+  _stop() async {
+    setState(() {
+      _animationController.stop();
+    });
+  }
+
+  _reverse() async {
+    setState(() {
+      _animationController.reverse();
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 3),
+    );
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: const Row(
-            children: [
-              Icon(Icons.create),
-              Text('初めてのタイトル'),
-            ],
-          )),
+        title: Text(widget.title),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            AnimatedContainer(
-              duration: const Duration(seconds: 3),
-              width: _flag ? 100 : 50,
-              height: _flag ? 50 : 100,
-              padding:
-                  _flag ? const EdgeInsets.all(0) : const EdgeInsets.all(30),
-              margin:
-                  _flag ? const EdgeInsets.all(0) : const EdgeInsets.all(30),
-              transform: _flag ? Matrix4.skewX(0.0) : Matrix4.skewX(0.3),
-              color: _flag ? Colors.blue : Colors.grey,
-            ),
-            AnimatedSwitcher(
-              duration: const Duration(seconds: 3),
-              child: _flag
-                  ? const Text('なにもない')
-                  : const Icon(Icons.favorite, color: Colors.pink),
+            SizeTransition(
+              sizeFactor: _animationController,
+              child: const Center(
+                child: FlutterLogo(size: 200.0),
+              ),
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _click,
-        child: const Icon(Icons.add),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          FloatingActionButton(
+            onPressed: _forward,
+            child: const Icon(Icons.arrow_forward),
+          ),
+          FloatingActionButton(
+            onPressed: _stop,
+            child: const Icon(Icons.pause),
+          ),
+          FloatingActionButton(
+            onPressed: _reverse,
+            child: const Icon(Icons.arrow_back),
+          ),
+        ],
       ),
     );
   }
