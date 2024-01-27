@@ -47,7 +47,12 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: const Text("HelloWorld"),
+      body: const Column(
+        children: [
+          Text("HelloWorld"),
+          Text("ハローワールド"),
+        ],
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
