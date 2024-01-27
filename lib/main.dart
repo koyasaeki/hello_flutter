@@ -81,6 +81,16 @@ class _MyHomePageState extends State<MyHomePage> {
         },
         child: const Icon(Icons.timer),
       ),
+      drawer: const Drawer(
+        child: Center(
+          child: Text("Drawer"),
+        ),
+      ),
+      endDrawer: const Drawer(
+        child: Center(
+          child: Text("EndDrawer"),
+        ),
+      ),
     );
   }
 }
