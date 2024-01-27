@@ -55,36 +55,23 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            AnimatedOpacity(
-              opacity: _flag ? 0.1 : 1.0,
+            AnimatedContainer(
               duration: const Duration(seconds: 3),
-              child: Text(
-                '消える文字',
-                style: Theme.of(context).textTheme.headlineLarge,
-              ),
+              width: _flag ? 100 : 50,
+              height: _flag ? 50 : 100,
+              padding:
+                  _flag ? const EdgeInsets.all(0) : const EdgeInsets.all(30),
+              margin:
+                  _flag ? const EdgeInsets.all(0) : const EdgeInsets.all(30),
+              transform: _flag ? Matrix4.skewX(0.0) : Matrix4.skewX(0.3),
+              color: _flag ? Colors.blue : Colors.grey,
             ),
-            // 一部のエミュレータでは縮小が動作しない
-            AnimatedSize(
-              duration: const Duration(seconds: 1),
-              child: SizedBox(
-                width: _flag ? 50 : 100,
-                height: _flag ? 50 : 200,
-                child: Container(
-                  color: Colors.green,
-                ),
-              ),
+            AnimatedSwitcher(
+              duration: const Duration(seconds: 3),
+              child: _flag
+                  ? const Text('なにもない')
+                  : const Icon(Icons.favorite, color: Colors.pink),
             ),
-            AnimatedAlign(
-              alignment: _flag ? Alignment.topLeft : Alignment.bottomRight,
-              duration: const Duration(seconds: 5),
-              child: SizedBox(
-                height: 50,
-                width: 50,
-                child: Container(
-                  color: Colors.amber,
-                ),
-              ),
-            )
           ],
         ),
       ),
