@@ -42,16 +42,16 @@ class _MyHomePageState extends State<MyHomePage> {
           title: const Row(
             children: [
               Icon(Icons.create),
-              Text("初めてのタイトル"),
+              Text('初めてのタイトル'),
             ],
           )),
       body: Column(
         children: [
-          const Text("HelloWorld"),
-          const Text("ハローワールド"),
+          const Text('HelloWorld'),
+          const Text('ハローワールド'),
           TextButton(
             onPressed: () {
-              print("ボタンが押されたよ。");
+              print('ボタンが押されたよ。');
             },
             child: const Text('テキストボタン'),
           ),
@@ -68,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   });
                 },
               ),
-              Text("count: $_count"),
+              Text('count: $_count'),
               IconButton(
                 icon: const Icon(
                   Icons.add,
@@ -83,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           Center(
             child: Text(
-              _count % 2 == 0 ? "偶数" : '奇数',
+              _count % 2 == 0 ? '偶数' : '奇数',
               style: TextStyle(
                 fontSize: 24.0,
                 color: _count % 2 == 0 ? Colors.blue : Colors.red,
@@ -114,18 +114,18 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          print("押したね？");
+          print('押したね？');
         },
         child: const Icon(Icons.timer),
       ),
       drawer: const Drawer(
         child: Center(
-          child: Text("Drawer"),
+          child: Text('Drawer'),
         ),
       ),
       endDrawer: const Drawer(
         child: Center(
-          child: Text("EndDrawer"),
+          child: Text('EndDrawer'),
         ),
       ),
     );
