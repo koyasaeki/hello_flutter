@@ -32,6 +32,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int _count = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,6 +54,41 @@ class _MyHomePageState extends State<MyHomePage> {
               print("ボタンが押されたよ。");
             },
             child: const Text('テキストボタン'),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              IconButton(
+                icon: const Icon(
+                  Icons.remove,
+                ),
+                onPressed: () {
+                  setState(() {
+                    _count--;
+                  });
+                },
+              ),
+              Text("count: $_count"),
+              IconButton(
+                icon: const Icon(
+                  Icons.add,
+                ),
+                onPressed: () {
+                  setState(() {
+                    _count++;
+                  });
+                },
+              ),
+            ],
+          ),
+          Center(
+            child: Text(
+              _count % 2 == 0 ? "偶数" : '奇数',
+              style: TextStyle(
+                fontSize: 24.0,
+                color: _count % 2 == 0 ? Colors.blue : Colors.red,
+              ),
+            ),
           ),
           const Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
