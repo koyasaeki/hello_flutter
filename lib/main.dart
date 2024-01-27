@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -45,73 +46,11 @@ class _MyHomePageState extends State<MyHomePage> {
               Text('初めてのタイトル'),
             ],
           )),
-      body: Column(
-        children: [
-          const Text('HelloWorld'),
-          const Text('ハローワールド'),
-          TextButton(
-            onPressed: () {
-              print('ボタンが押されたよ。');
-            },
-            child: const Text('テキストボタン'),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              IconButton(
-                icon: const Icon(
-                  Icons.remove,
-                ),
-                onPressed: () {
-                  setState(() {
-                    _count--;
-                  });
-                },
-              ),
-              Text('count: $_count'),
-              IconButton(
-                icon: const Icon(
-                  Icons.add,
-                ),
-                onPressed: () {
-                  setState(() {
-                    _count++;
-                  });
-                },
-              ),
-            ],
-          ),
-          Center(
-            child: Text(
-              _count % 2 == 0 ? '偶数' : '奇数',
-              style: TextStyle(
-                fontSize: 24.0,
-                color: _count % 2 == 0 ? Colors.blue : Colors.red,
-              ),
-            ),
-          ),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Icon(
-                Icons.favorite,
-                color: Colors.pink,
-                size: 24.0,
-              ),
-              Icon(
-                Icons.audiotrack,
-                color: Colors.green,
-                size: 30.0,
-              ),
-              Icon(
-                Icons.beach_access,
-                color: Colors.blue,
-                size: 36.0,
-              ),
-            ],
-          )
-        ],
-      ),
+      body: const Center(
+          child: Icon(
+        FontAwesomeIcons.gift,
+        color: Colors.greenAccent,
+      )),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           print('押したね？');
