@@ -1,16 +1,8 @@
 # hello_flutter
 
-A new Flutter project.
+書籍「動かして学ぶ Flutter 開発入門」の学習用リポジトリです。
 
-## Getting Started
+## 書籍のリンク
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- https://www.shoeisha.co.jp/book/detail/9784798177366
+- https://zenn.dev/kazutxt/books/flutter_practice_introduction
