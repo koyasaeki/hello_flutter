@@ -9,18 +9,19 @@ class TestPage1 extends StatelessWidget {
         title: const Text('Test Page 1'),
       ),
       body: Center(
-          child: TextButton(
-        onPressed: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) {
-                return TestPage2();
-              },
-            ),
-          );
-        },
-        child: const Text('進む'),
-      )),
+        child: TextButton(
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) {
+                  return TestPage2();
+                },
+              ),
+            );
+          },
+          child: const Text('進む'),
+        ),
+      ),
     );
   }
 }
